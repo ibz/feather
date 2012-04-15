@@ -1,0 +1,35 @@
+body {
+    text-align: center;
+    font-family: verdana, arial, sans-serif;
+    font-size: 11px;
+    background: #4D4D4D;
+    color: #666666;
+    margin: 0;
+    padding: 15px 0 0 0;
+}
+
+p, h2 {
+    color: #FFFFFF;
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #D58900;
+}
+
+.ContentFlow .loadIndicator {
+    background: #4D4D4D;
+}
+
+.ContentFlow .flow .item {
+    cursor: pointer;
+}
+
+.ContentFlow .flow .item.active {
+    cursor: default;
+}
