@@ -1,5 +1,5 @@
 var sets = [
-    {'id': "default", 'name': "singles"},
+    {'id': "default", 'name': "singles", 'reverse': true},
 ];
 
 var photos = [

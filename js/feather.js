@@ -1,11 +1,18 @@
-function showSet(set, reverse) {
+function showSet(set_id) {
+    var set = null;
+    for (var i = 0; i < sets.length; i++) {
+        if (sets[i]['id'] == set_id) {
+            set = sets[i];
+        }
+    }
+    var reverse = set['reverse'];
     var container = document.getElementById('itemcontainer');
     for(var i = photos.length - 1; i >= 0; i--) {
-        if (photos[i]['set'] == set) {
+        if (photos[i]['set'] == set_id) {
             var img = document.createElement('img');
             img.setAttribute('class', 'item');
             img.setAttribute('src', "js/lib/contentflow/img/loader.gif");
-            img.setAttribute('data-original', "photos/" + set + "/" + photos[i]['id'] + ".jpg");
+            img.setAttribute('data-original', "photos/" + set_id + "/" + photos[i]['id'] + ".jpg");
             if (reverse) {
                 container.appendChild(img);
             } else {

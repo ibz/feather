@@ -23,13 +23,7 @@
 
     var param_index = window.location.href.indexOf("?");
 
-    if (param_index == -1) {
-        showSet("default", true);
-    } else {
-        var set = window.location.href.substr(param_index + 1);
-        showSet(set, false);
-    }
-
+    showSet(param_index == -1 ? "default" : window.location.href.substr(param_index + 1));
     </script>
 </body>
 </html>
