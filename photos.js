@@ -1,7 +1,6 @@
 var sets = [
-    {'id': "default", 'name': "singles", 'reverse': true},
+    {'id': "default", 'name': "singles", 'photos': [
+        {'id': 1},
+    ]},
 ];
 
-var photos = [
-    {'id': 1, 'set': "default"},
-];

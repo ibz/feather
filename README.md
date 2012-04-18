@@ -8,19 +8,12 @@ just clone feather to a directory that is shared via HTTP. any web server should
 
 ## how to post a new photo?
 
-feather has a "default" gallery, which works like a photoblog - all photos are in reverse order. in addition to that, you can have any number of sets. to post a new photo:
+- edit photos.js - add the image to one of your sets
+- add the actual photo to the `photos` directory - in a subdirectory named after the set. the filename should match the id you gave in photos.js. for example `photos/default/1.jpg`
+- copy the modified files to your web server (to make everything easier, you can just push your modified repo to github and pull on your web server)
 
-- edit photos.js - add something like this `{'id': 1, 'set': "default"}`, where `id` is a number 1, 2, 3, ... and `set` is the name of the set you want to post in (or `default`)
-- add the actual photo to the `photos` directory - in a subdirectory named after the set. the filename should match the id. for example `photos/default/1.jpg`
-- copy the photos.js and the photo to your web server
-- to make everything easier, you can just push your modified repo to github and pull on your web server
+## how to create a new set?
 
-## how to create a new gallery?
-
-- edit photos.js. galleries have an id, which is a string, and will be used in the URL, and a name.
-- create a subdirectory under `photos\`. it needs to match the id.
-- add photos
-
-## thanks
-
-thanks to Sebastian Kutsch for creating [ContentFlow](http://www.jacksasylum.eu/ContentFlow/), which is more than 95% of feather. :)
+- edit photos.js
+- create a subdirectory under `photos\`. its name needs to match the set id you gave in photos.js
+- add photos to the new set

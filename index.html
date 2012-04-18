@@ -2,28 +2,41 @@
 <head>
     <meta charset="utf-8">
     <title></title>
-    <script type="text/javascript" src="js/lib/contentflow/contentflow.js"></script>
     <script type="text/javascript" src="js/feather.js"></script>
     <script type="text/javascript" src="photos.js"></script>
     <link href="css/feather.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <div id="contentFlow" class="ContentFlow">
-        <div class="loadIndicator"><div class="indicator"></div></div>
-        <div id="itemcontainer" class="flow"></div>
-        <div class="scrollbar"><div class="slider"><div class="position"></div></div></div>
-    </div>
-
     <p id="navigation"></p>
 
-    <script type="text/javascript">
-    var VISIBLE_ITEMS = 5;
+    <table width="100%">
+        <tr>
+            <td width="40%" align="right"><a href="javascript:prev()"><img src="img/prev.png" alt="prev" /></a></td>
+            <td width="20%"><img id="photo" src="" alt="photo" /></td>
+            <td width="40%" align="left"><a href="javascript:next()"><img src="img/next.png" alt="next" /></a></td>
+        </tr>
+    </table>
 
-    new ContentFlow('contentFlow', {'reflectionHeight': 0, 'startItem': 'first', 'circularFlow': false, 'scaleFactor': 1.8, 'flowSpeedFactor': 2.5, 'visibleItems': VISIBLE_ITEMS, 'endOpacity': 0.1, 'scrollInFrom': 'none', 'onclickActiveItem': function(item) {}, 'onInit': function() { showNavigation(); }, 'onMakeActive': function(item) { lazyLoadImages(item, VISIBLE_ITEMS); }});
+    <script type="text/javascript">
+    var set_id = null;
+    var photo_index = null;
 
     var param_index = window.location.href.indexOf("?");
-
     showSet(param_index == -1 ? "default" : window.location.href.substr(param_index + 1));
+
+    showNavigation();
+
+    document.onkeydown = function (e) {
+        switch ((e || window.event).keyCode) {
+            case 37:
+                prev();
+                break;
+            case 39:
+                next();
+        }
+
+        return document.defaultAction;
+    };
     </script>
 </body>
 </html>
