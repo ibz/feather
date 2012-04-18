@@ -12,6 +12,17 @@ function showCurrentPhoto() {
     document.getElementById('photo').setAttribute('src', "photos/" + set_id + "/" + set['photos'][photo_index]['id'] + ".jpg");
 }
 
+function preloadNext() {
+    var set = getSet(set_id);
+    var html = "";
+    for (var i = 1; i <= 3; i++) {
+        if (photo_index + i < set['photos'].length - 1) {
+            html += "<img src=\"photos/" + set_id + "/" + set['photos'][photo_index + i]['id'] + ".jpg\" />";
+        }
+    }
+    document.getElementById('preloader').innerHTML = html;
+}
+
 function showSet(id) {
     var set = getSet(id);
 
@@ -19,6 +30,7 @@ function showSet(id) {
     photo_index = 0;
 
     showCurrentPhoto();
+    preloadNext();
 }
 
 function prev() {
@@ -34,6 +46,7 @@ function next() {
     if (photo_index < set['photos'].length - 1) {
         photo_index++;
         showCurrentPhoto();
+        preloadNext();
     }
 }
 
